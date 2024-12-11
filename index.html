@@ -10,43 +10,121 @@
     />
     <link rel="stylesheet" href="./asset/css/reset.css" />
     <link rel="stylesheet" href="./asset/css/style.css" />
+    <link rel="stylesheet" href="./asset/css/reponsive.css" />
     <title>Gội đầu dưỡng sinh - Mộc Nhiên</title>
   </head>
-  <body>
+  <body style="background-color: rgb(220 255 243)">
     <div class="header fixed">
-      <div class="main-content">
-        <div class="header-boddy">
-          <!-- logo Moc Nhien -->
-          <img
-            src="./asset/img/mocnhien.png"
-            alt="Moc Nhien"
-            class="logo"
-            width="150"
-          />
-          <!-- nav menu -->
-          <div class="nav-menu">
-            <ul>
-              <li>
-                <a href="">Trang chủ</a>
+      <div class="togggle_btn">
+        <input
+          type="checkbox"
+          name="menu-checkbox"
+          id="menu-checkbox"
+          class="menu-checkbox"
+          hidden
+        />
+        <label for="menu-checkbox">
+          <svg
+            class="menu_svg"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 448 512"
+          >
+            <path
+              d="M0 96C0 78.3 14.3 64 32 64l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 128C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 288c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32L32 448c-17.7 0-32-14.3-32-32s14.3-32 32-32l384 0c17.7 0 32 14.3 32 32z"
+            />
+          </svg>
+        </label>
+        <!-- overlay -->
+        <label for="menu-checkbox" class="menu-overlay"></label>
+        <!-- Menu content -->
+        <div class="menu-drawer" id="opendraw">
+          <div class="menu-drawer-top">
+            <!-- logo Mộc Nhiên -->
+            <img
+              class="logo-top"
+              src="./asset/img/mocnhien.png"
+              alt="Moc Nhien"
+              class="logo"
+            />
+            <!-- Icon close draw -->
+            <label for="menu-chekbox">
+              <svg
+                class="btn-close"
+                id="buttonclose"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 512 512"
+              >
+                <path
+                  d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM175 175c9.4-9.4 24.6-9.4 33.9 0l47 47 47-47c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-47 47 47 47c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-47-47-47 47c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l47-47-47-47c-9.4-9.4-9.4-24.6 0-33.9z"
+                />
+              </svg>
+            </label>
+          </div>
+          <nav class="nav-bar">
+            <ul class="nav-list">
+              <li class="nav-item">
+                <a
+                  href="./index.html"
+                  style="display: block; margin-bottom: 10px"
+                >
+                  Trang chủ
+                </a>
               </li>
-              <li>
-                <a href="">Câu chuyện</a>
+              <li class="nav-item">
+                <a
+                  href="./cauchuyen.html"
+                  style="display: block; margin-bottom: 10px"
+                >
+                  Câu chuyện</a
+                >
               </li>
-              <li>
-                <a href="">Dịch vụ</a>
+              <li class="nav-item">
+                <a href="" style="display: block; margin-bottom: 10px"
+                  >Dịch vụ</a
+                >
               </li>
-              <li>
-                <a href="">Hướng dẫn</a>
+              <li class="nav-item">
+                <a href="" style="display: block; margin-bottom: 10px"
+                  >Hướng dẫn</a
+                >
               </li>
             </ul>
-          </div>
-          <!-- button action -->
-          <div class="action">
-            <input
-              type="text"
-              class="search"
-              placeholder="Nhập mục tìm kiếm..."
+          </nav>
+        </div>
+        <div class="main-content">
+          <div class="header-boddy">
+            <!-- logo Moc Nhien -->
+            <img
+              src="./asset/img/mocnhien.png"
+              alt="Moc Nhien"
+              class="logo"
+              width="150"
             />
+            <!-- nav menu -->
+            <div class="nav-menu">
+              <ul>
+                <li>
+                  <a href="./index.html">Trang chủ</a>
+                </li>
+                <li>
+                  <a href="./cauchuyen.html" target="_blank">Câu chuyện</a>
+                </li>
+                <li>
+                  <a href="">Dịch vụ</a>
+                </li>
+                <li>
+                  <a href="">Hướng dẫn</a>
+                </li>
+              </ul>
+            </div>
+            <!-- button action -->
+            <div class="action">
+              <input
+                type="text"
+                class="search"
+                placeholder="Nhập mục tìm kiếm..."
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -108,7 +186,7 @@
           </ul>
           <p style="text-align: justify">
             <i>
-              <span style="font-weight: 400">
+              <span style="font-weight: 400; font-size: 15px">
                 Dịch vụ gội cơ bản với thảo mộc thiên nhiên giúp tóc chắc khỏe
                 và dịch vụ massage giúp sảng khoái tinh thần
               </span>
@@ -116,9 +194,7 @@
           </p>
           <ul>
             <li>
-              <b
-                >---------------------------------------------------------------------------------------------------------------------------------</b
-              >
+              <b class="separate"></b>
             </li>
           </ul>
           <ul>
@@ -133,7 +209,7 @@
           </ul>
           <p style="text-align: justify">
             <i>
-              <span style="font-weight: 400">
+              <span style="font-weight: 400; font-size: 15px">
                 Giúp thư giãn đầu óc và nuôi dưỡng mái tóc óc mượt với nước gội
                 bồ kết hương nhu 100% thiên nhiên, không hoá chất.
               </span>
@@ -141,9 +217,7 @@
           </p>
           <ul>
             <li>
-              <b
-                >---------------------------------------------------------------------------------------------------------------------------------</b
-              >
+              <b class="separate"></b>
             </li>
           </ul>
           <ul>
@@ -158,7 +232,7 @@
           </ul>
           <p style="text-align: justify">
             <i>
-              <span style="font-weight: 400">
+              <span style="font-weight: 400; font-size: 15px">
                 Giúp thư giãn, đả thông kinh lạc, lưu thông máu huyết. Cải thiện
                 đáng kể các tình trạng nhức đầu, đau nửa đầu,mất ngủ, ngủ không
                 sâu giấc,..
@@ -187,14 +261,23 @@
         </div>
       </div>
       <div class="contact">
-        <h3 style="font-size: larger; font-weight: bold">
+        <h3
+          style="font-size: larger; font-weight: bold; font-family: system-ui"
+        >
           Gọi ngay cho chúng tôi để đặt dịch vụ Mộc Nhiên
         </h3>
-        <h2 style="font-size: larger; font-weight: bold; padding-top: 30px">
+        <h2
+          style="
+            font-size: larger;
+            font-weight: bold;
+            padding-top: 30px;
+            font-family: system-ui;
+          "
+        >
           Hotline đặt chỗ:
           <a href="tel:0961486459" class="btn_call">0961486459</a>
         </h2>
-        <h3 id="fanpage-inbox">
+        <h3 id="fanpage-inbox" style="font-weight: bold">
           <span>Hoặc inbox qua FanPage: </span>
           <a
             href="https://www.facebook.com/share/1FYYThLoiW/?mibextid=LQQJ4d"

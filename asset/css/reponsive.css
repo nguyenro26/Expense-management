@@ -1,0 +1,128 @@
+/* PC */
+@media (min-width: 992px) {
+  .menu_svg {
+    display: none;
+  }
+  #menu-checkbox {
+    display: none;
+  }
+  .menu-drawer {
+    display: none;
+  }
+}
+/* Tablet and Mobile */
+@media (max-width: 991.98px) {
+  /* Ẩn taskbar khi user chuyển sang mobile mode */
+  .nav-menu {
+    display: none;
+  }
+  /* Chuyển logo vào giữa màn hình */
+  .header {
+    position: relative;
+  }
+  .logo {
+    position: absolute;
+    left: -90px;
+  }
+  .action {
+    display: none;
+  }
+  .menu_svg {
+    position: absolute;
+    width: 30px;
+  }
+  .menu-overlay {
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.3);
+    /* set toàn màn hình */
+    inset: 0;
+    /* chống hình tràn lên */
+    z-index: 1;
+    /* ẩn overlay */
+    opacity: 0;
+    visibility: hidden;
+  }
+  /* Ktra nếu click vào sẽ mất overlay */
+  .menu-checkbox:checked ~ .menu-overlay {
+    opacity: 1;
+    visibility: visible;
+  }
+  /* menu content */
+  .menu-drawer {
+    position: fixed;
+    background-color: #e1e9e7;
+    inset: 0 40% 0 0;
+    z-index: 2;
+    transform: translateX(-100%);
+    transition: 0.5s;
+    padding: 60px;
+  }
+  /* Ktra người dùng click vào menu */
+  .menu-checkbox:checked ~ .menu-drawer {
+    transform: translateX(0);
+  }
+  .btn-close {
+    width: 24px;
+    position: fixed;
+    left: 445.9px;
+    top: 4px;
+    transform: translateX(-100%);
+    visibility: hidden;
+  }
+  /* click vào button close */
+  /* .menu-checkbox:checked ~ .btn-close {
+    
+  } */
+  .nav-item {
+    display: block;
+    font-size: 4rem;
+    color: #fff;
+  }
+  .nav-item:hover {
+    background-color: #00ffff37;
+  }
+}
+/* Tablet */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .social-1 {
+    padding: 10px;
+    padding-left: 200px;
+    translate: 42%;
+  }
+  .contact {
+    padding-left: 190px;
+    padding-top: 70px;
+    font-size: 1.75rem;
+    translate: 1% -15%;
+  }
+  .image-info {
+    translate: 29% 0%;
+  }
+  .title-3 {
+    translate: 55%;
+  }
+  .small-menu {
+    translate: 46%;
+  }
+  .menu-2 {
+    translate: -41%;
+  }
+  .social {
+    translate: -43%;
+  }
+}
+/* Mobile */
+@media (max-width: 767.98px) {
+  .image-info {
+    translate: 12% 0%;
+  }
+  .social-1 {
+    translate: 45%;
+  }
+  .contact {
+    translate: -15% -15%;
+  }
+  .menu-2 {
+    translate: -1%;
+  }
+}

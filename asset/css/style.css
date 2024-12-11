@@ -3,8 +3,9 @@ html {
 }
 /* common */
 body {
-  font-size: 1.6rem;
-  font-family: "Poppins", sans-serif;
+  /* font-size: 1.6rem;
+    font-family: "Poppins", sans-serif; */
+  display: grid;
 }
 
 a {
@@ -85,16 +86,20 @@ p {
   line-height: 60px;
   letter-spacing: 0.015em;
   margin-left: 92px;
+  font-family: serif;
 }
 
 .title-2 {
   margin-left: 84px;
+  font-size: 16px;
+  font-family: monospace;
 }
 
 .caption-1 {
   font-style: italic;
   font-weight: 600;
   font-size: 16px;
+  font-family: sans-serif;
 }
 
 .caption-2 {
@@ -145,6 +150,7 @@ li {
 
 b {
   font-weight: bolder;
+  font-size: 18px;
 }
 
 .row-1 {
@@ -167,7 +173,6 @@ b {
 @media (min-width: 768px) {
   .row-2 {
     -ms-flex: 0 0 50%;
-    /* flex: 0 0 50%; */
     max-width: 50%;
     box-sizing: border-box;
   }
@@ -197,11 +202,12 @@ p {
 
 figcaption {
   padding-left: 114px;
+  font-size: 20px;
 }
 
 .contact {
-  padding-left: 200px;
-  padding-top: 120px;
+  padding-left: 262px;
+  padding-top: 170px;
   font-size: 1.75rem;
 }
 
@@ -221,4 +227,8 @@ figcaption {
   margin-top: 10px;
   margin-right: -10px;
   margin-left: -0px;
+}
+
+.separate {
+  border-top: 1.5rem solid #000;
 }
