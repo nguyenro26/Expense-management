@@ -30,6 +30,8 @@
   .menu_svg {
     position: absolute;
     width: 30px;
+    padding-left: 20px;
+    padding-top: 15px;
   }
   .menu-overlay {
     position: fixed;
@@ -62,17 +64,16 @@
     transform: translateX(0);
   }
   .btn-close {
-    width: 24px;
+    width: 40px;
     position: fixed;
     left: 445.9px;
     top: 4px;
     transform: translateX(-100%);
-    visibility: hidden;
   }
   /* click vào button close */
-  /* .menu-checkbox:checked ~ .btn-close {
-    
-  } */
+  .btn-close:checked ~ .menu-drawer {
+    visibility: hidden;
+  }
   .nav-item {
     display: block;
     font-size: 4rem;
@@ -80,6 +81,10 @@
   }
   .nav-item:hover {
     background-color: #00ffff37;
+  }
+  .title-3 {
+    padding-left: 70px;
+    display: ruby-text;
   }
 }
 /* Tablet */
@@ -97,9 +102,6 @@
   }
   .image-info {
     translate: 29% 0%;
-  }
-  .title-3 {
-    translate: 55%;
   }
   .small-menu {
     translate: 46%;
