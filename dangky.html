@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Đăng ký</title>
+    <link rel="stylesheet" href="./asset/css/reset.css" />
+    <link rel="stylesheet" href="./asset/css/styleDK.css" />
+    <link rel="stylesheet" href="./asset/css/reponsive.css" />
+    <script
+      src="https://kit.fontawesome.com/a076d05399.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="register-box">
+        <h2>Đăng ký</h2>
+        <div class="container">
+          <input
+            type="text"
+            id="loginName"
+            placeholder="Vui lòng nhập tên đăng nhập"
+          />
+        </div>
+        <div class="form-group">
+          <input type="text" id="firstName" placeholder="Vui lòng nhập Tên" />
+          <input type="text" id="lastName" placeholder="Vui lòng nhập Họ" />
+        </div>
+        <div class="form-group">
+          <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"
+          />
+          <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+          <input id="datepicker" type="text" placeholder="Chọn ngày sinh" />
+          <input type="text" id="phone" placeholder="Số điện thoại" />
+        </div>
+        <div class="form-group">
+          <input type="text" id="address" placeholder="Địa chỉ" />
+          <input type="email" id="email" placeholder="Email" />
+        </div>
+        <div class="password-container">
+          <input
+            type="password"
+            id="password"
+            placeholder="Nhập mật khẩu của bạn"
+          />
+          <i class="fa fa-eye" id="togglePassword"></i>
+        </div>
+        <div class="password-container">
+          <input
+            type="password"
+            id="confirmPassword"
+            placeholder="Vui lòng nhập lại mật khẩu của bạn"
+          />
+          <i class="fa fa-eye" id="toggleConfirmPassword"></i>
+        </div>
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        />
+        <button id="registerBtn">Đăng ký</button>
+      </div>
+    </div>
+    <script src="asset/js/dangky.js"></script>
+  </body>
+</html>

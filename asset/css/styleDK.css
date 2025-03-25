@@ -1,0 +1,132 @@
+/* Định dạng chung */
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: url("https://unsplash.com/photos/NQSWvyVRIJk/download?force=true")
+    no-repeat center center/cover;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.register-box {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 55px;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  text-align: center;
+  width: 350px;
+}
+
+.register-box h2 {
+  color: white;
+  margin-bottom: 15px;
+}
+
+.register-box input {
+  width: 97%;
+  padding: 10px;
+  margin: 5px 0;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+.register-box input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.register-box button {
+  width: 100%;
+  padding: 10px;
+  background: black;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.register-box button:hover {
+  background: #333;
+}
+
+.form-group {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* 2 cột bằng nhau */
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.form-group input {
+  width: 90%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+.form-group:last-child {
+  display: flex;
+  justify-content: center;
+}
+
+#datepicker {
+  width: 90%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  cursor: pointer;
+}
+
+/* Giao diện lịch */
+.flatpickr-calendar {
+  background: #222;
+  color: white;
+  border-radius: 10px;
+}
+
+.flatpickr-day.selected {
+  background: #007bff !important;
+  color: white;
+  border-radius: 50%;
+}
+
+.flatpickr-day.today {
+  border: 1px solid #007bff;
+}
+
+.password-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-container input {
+  width: 100%;
+  padding-right: 40px; /* Chừa chỗ cho icon */
+}
+
+.password-container i {
+  position: absolute;
+  right: 10px;
+  cursor: pointer;
+  color: #888;
+}
+
+.password-container i:hover {
+  color: #000;
+}
