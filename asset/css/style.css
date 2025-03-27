@@ -47,6 +47,7 @@ a {
   color: bisque;
   font-size: 1.6rem;
   padding: 20px;
+  display: block;
 }
 
 .nav-menu a:hover {
@@ -232,4 +233,115 @@ figcaption {
 
 .separate {
   border-top: 1.5rem solid #000;
+}
+
+.user-profile {
+  align-items: center;
+  justify-content: center;
+  width: 230px;
+  height: 60px;
+  border: 2px solid white;
+  border-radius: 30px;
+  background-color: transparent;
+  color: white;
+  text-align: center;
+  margin-left: 50px;
+  margin-top: 40px;
+  position: relative;
+  display: flex;
+  cursor: pointer;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  background: white;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%); /* Căn giữa dropdown */
+  min-width: 180px;
+  z-index: 10;
+  text-align: left; /* Căn trái nội dung trong dropdown */
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: black;
+}
+
+.dropdown-menu a:hover {
+  background: #f0f0f0;
+}
+
+/* Hiển thị dropdown khi hover */
+.user-profile:hover .dropdown-menu {
+  display: block;
+}
+
+.info-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.display-name {
+  font-weight: bold;
+  font-size: large;
+}
+
+.user-name {
+  font-size: 12px;
+  opacity: 0.8;
+  padding-top: 10px;
+}
+
+.popup-thank {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 105px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.popup-thank {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  max-width: 400px;
+  background: white;
+  padding: 20px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  display: none;
+}
+
+.value-popup-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.value-popup {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+#thank-you-popup {
+  display: none;
+  opacity: 1;
+  transition: opacity 1s ease-in-out;
 }

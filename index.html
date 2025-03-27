@@ -88,12 +88,18 @@
                 >
               </li>
               <li class="nav-item">
-                <a href="" style="display: block; margin-bottom: 10px">
+                <a
+                  href="./dangnhap.html"
+                  style="display: block; margin-bottom: 10px"
+                >
                   Đăng Nhập</a
                 >
               </li>
               <li class="nav-item">
-                <a href="" style="display: block; margin-bottom: 10px">
+                <a
+                  href="/dangky.html"
+                  style="display: block; margin-bottom: 10px"
+                >
                   Đăng Ký</a
                 >
               </li>
@@ -125,10 +131,10 @@
                   <a href="">Hướng dẫn</a>
                 </li>
                 <li>
-                  <a href="./dangnhap.html">Đăng Nhập</a>
+                  <a href="./dangnhap.html" id="login">Đăng Nhập</a>
                 </li>
                 <li>
-                  <a href="./dangky.html">Đăng Ký</a>
+                  <a href="./dangky.html" id="register">Đăng Ký</a>
                 </li>
               </ul>
             </div>
@@ -139,6 +145,28 @@
                 class="search"
                 placeholder="Nhập mục tìm kiếm..."
               />
+            </div>
+            <div class="user-profile dropdown" id="user-dropdown-menu">
+              <div class="info-container">
+                <div class="display-name"></div>
+                <div class="user-name"></div>
+              </div>
+              <div class="dropdown-menu" id="dropdown-menu">
+                <a href="#" id="adminLink" style="display: none"
+                  >Quản trị viên</a
+                >
+                <a id="logout-btn">Đăng xuất</a>
+              </div>
+            </div>
+            <!-- Popup thông báo -->
+            <div class="popup-thank" id="thank-you-popup">
+              <p class="value-popup-title">MỘC NHIÊN</p>
+              <p class="value-popup">
+                🎉 Cảm ơn quý khách đã sử dụng dịch vụ của chúng tôi. Nếu có bất
+                kỳ thắc mắc hoặc không hài lòng về dịch vụ, vui lòng cung cấp
+                thông tin qua email:
+                <strong>mocnhienoffical@gmail.com</strong>
+              </p>
             </div>
           </div>
         </div>
@@ -308,5 +336,6 @@
         </h3>
       </div>
     </div>
+    <script src="asset/js/trangchu.js"></script>
   </body>
 </html>

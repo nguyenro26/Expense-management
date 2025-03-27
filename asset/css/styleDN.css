@@ -44,9 +44,11 @@ body {
   background: rgba(255, 255, 255, 0.2);
   color: white;
 }
+
 .input-box input::placeholder {
   color: rgba(255, 255, 255, 0.7);
 }
+
 .login-btn {
   width: 100%;
   padding: 10px;
@@ -56,6 +58,24 @@ body {
   border-radius: 5px;
   cursor: pointer;
 }
+
+.register-btn {
+  width: 100%;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.form-group {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* 2 cột bằng nhau */
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
 .social-login {
   margin-top: 15px;
 }

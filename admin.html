@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="./asset/img/mocnhien.png"
+      type="image/x-icon"
+    />
+    <title>Mộc Nhiên Admin</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./asset/css/reset.css" />
+    <link rel="stylesheet" href="./asset/css/admin.css" />
+    <link rel="stylesheet" href="./asset/css/reponsive.css" />
+  </head>
+  <body>
+    <!-- Nút Toggle (Chỉ hiện trên mobile) -->
+    <button class="toggle-sidebar" id="toggleSidebar">☰</button>
+
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+      <h2>Mộc Nhiên Admin</h2>
+      <div class="menu-item" id="home-btn"><i class="fa fa-home"></i> Home</div>
+      <div class="menu-item"><i class="fa fa-user"></i> Cài đặt người dùng</div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <div class="header" id="headerId">
+        <div class="profile">
+          <img src="asset/img/mocnhien.png" alt="User Avatar" />
+          <span id="info-user"></span>
+        </div>
+      </div>
+      <nav>
+        <div class="tabs">
+          <div class="tab active" data-target="userTable">
+            Thông tin người dùng
+          </div>
+          <div class="tab" data-target="employeeTable">Thông tin nhân viên</div>
+          <div class="tab" data-target="accountTable">Thông tin tài khoản</div>
+          <div class="tab" data-target="scheduleTable">Lịch phân công</div>
+          <div class="tab" data-target="developing1">Developing</div>
+          <div class="tab" data-target="developing2">Developing</div>
+        </div>
+      </nav>
+
+      <!-- Bảng dữ liệu -->
+      <section class="tab-content active" id="userTable">
+        <h3>Danh sách người dùng</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Tên</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th>Địa chỉ</th>
+              <th>Vai trò</th>
+            </tr>
+          </thead>
+          <tbody id="userTableBody"></tbody>
+        </table>
+      </section>
+
+      <section class="tab-content" id="employeeTable">
+        <h3>Danh sách nhân viên</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Tên</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th>Chức vụ</th>
+            </tr>
+          </thead>
+          <tbody id="employeeTableBody"></tbody>
+        </table>
+      </section>
+
+      <section class="tab-content" id="accountTable">
+        <h3>Danh sách tài khoản</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Username</th>
+              <th>Email</th>
+              <th>Loại tài khoản</th>
+            </tr>
+          </thead>
+          <tbody id="accountTableBody"></tbody>
+        </table>
+      </section>
+
+      <section class="tab-content" id="scheduleTable">
+        <h3>Lịch phân công</h3>
+        <p>Chức năng đang phát triển...</p>
+      </section>
+
+      <section class="tab-content" id="developing1">
+        <h3>Developing</h3>
+        <p>Chức năng đang phát triển...</p>
+      </section>
+
+      <section class="tab-content" id="developing2">
+        <h3>Developing</h3>
+        <p>Chức năng đang phát triển...</p>
+      </section>
+    </div>
+    <script src="asset/js/admin.js"></script>
+  </body>
+</html>

@@ -1,13 +1,15 @@
+// DatePicker
 document.addEventListener("DOMContentLoaded", function () {
   console.log("JavaScript đã tải DATEPICKER");
   flatpickr("#datepicker", {
-    dateFormat: "d/m/Y", // Hiển thị theo định dạng ngày/tháng/năm
-    maxDate: "today", // Không cho chọn ngày trong tương lai
-    defaultDate: "2000-01-01", // Ngày mặc định
-    locale: "vn", // Hỗ trợ tiếng Việt nếu cần
+    dateFormat: "d/m/Y",
+    maxDate: "today",
+    defaultDate: "01/01/2000",
+    locale: "vn",
   });
 });
 
+// Đăng ký người dùng
 document.addEventListener("DOMContentLoaded", function () {
   console.log("JavaScript đã tải BUTTON REGISTER");
 
@@ -17,6 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
       console.log("Nút đăng ký đã được nhấn!");
 
       const loginName = document.getElementById("loginName").value.trim();
+      const role = document.getElementById("role").value.trim();
       const firstName = document.getElementById("firstName").value.trim();
       const lastName = document.getElementById("lastName").value.trim();
       const phone = document.getElementById("phone").value.trim();
@@ -27,13 +30,12 @@ document.addEventListener("DOMContentLoaded", function () {
         .getElementById("confirmPassword")
         .value.trim();
 
-      // Biểu thức kiểm tra mật khẩu mạnh
       const passwordRegex =
         /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z\d])[A-Za-z\d\W]{6,}$/;
 
-      // Kiểm tra các trường có bị bỏ trống không
       if (
         !loginName ||
+        !role ||
         !firstName ||
         !lastName ||
         !phone ||
@@ -46,7 +48,6 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
       }
 
-      // Kiểm tra mật khẩu có đạt yêu cầu không
       if (!passwordRegex.test(password)) {
         alert(
           "❌ Mật khẩu phải có ít nhất 6 ký tự, bao gồm:\n- Ít nhất 1 chữ hoa\n- Ít nhất 1 chữ thường\n- Ít nhất 1 số\n- Ít nhất 1 ký tự đặc biệt"
@@ -54,14 +55,23 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
       }
 
-      // Kiểm tra mật khẩu nhập lại có khớp không
       if (password !== confirmPassword) {
         alert("❌ Mật khẩu nhập lại không khớp!");
         return;
       }
 
+      let users = JSON.parse(localStorage.getItem("users")) || [];
+
+      // Kiểm tra xem email đã tồn tại chưa
+      const isUserExist = users.some((user) => user.email === email);
+      if (isUserExist) {
+        alert("❌ Email đã tồn tại! Vui lòng chọn email khác.");
+        return;
+      }
+
       const userData = {
         loginName,
+        role,
         firstName,
         lastName,
         phone,
@@ -69,17 +79,13 @@ document.addEventListener("DOMContentLoaded", function () {
         email,
         password,
       };
-      localStorage.setItem("userData", JSON.stringify(userData));
 
-      console.log("Đăng ký thành công!", {
-        loginName,
-        firstName,
-        lastName,
-        phone,
-        address,
-        email,
-      });
+      users.push(userData);
+      localStorage.setItem("users", JSON.stringify(users));
+
+      console.log("Đăng ký thành công!", userData);
       alert("✅ Đăng ký thành công!");
+
       setTimeout(() => {
         window.location.href = "dangnhap.html";
       }, 1000);
@@ -87,28 +93,29 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
+// Hiện thị password
 document.addEventListener("DOMContentLoaded", function () {
   console.log("JavaScript đã tải EYE ICON");
 
-  // Xử lý hiển thị mật khẩu khi click vào icon con mắt
   function togglePasswordVisibility(inputId, iconId) {
     const passwordField = document.getElementById(inputId);
     const toggleIcon = document.getElementById(iconId);
 
-    toggleIcon.addEventListener("click", function () {
-      if (passwordField.type === "password") {
-        passwordField.type = "text";
-        toggleIcon.classList.remove("fa-eye");
-        toggleIcon.classList.add("fa-eye-slash");
-      } else {
-        passwordField.type = "password";
-        toggleIcon.classList.remove("fa-eye-slash");
-        toggleIcon.classList.add("fa-eye");
-      }
-    });
+    if (toggleIcon) {
+      toggleIcon.addEventListener("click", function () {
+        if (passwordField.type === "password") {
+          passwordField.type = "text";
+          toggleIcon.classList.remove("fa-eye");
+          toggleIcon.classList.add("fa-eye-slash");
+        } else {
+          passwordField.type = "password";
+          toggleIcon.classList.remove("fa-eye-slash");
+          toggleIcon.classList.add("fa-eye");
+        }
+      });
+    }
   }
 
-  // Gọi hàm cho cả hai ô mật khẩu
   togglePasswordVisibility("password", "togglePassword");
   togglePasswordVisibility("confirmPassword", "toggleConfirmPassword");
 });

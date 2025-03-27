@@ -1,0 +1,201 @@
+/* Reset mặc định */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  height: 100vh;
+  background: #f0f2f5;
+  background: url("https://unsplash.com/photos/cieRbbZX0KM/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8M3x8UXV5JTIwTmhvbnxlbnwwfHx8fDE3NDI5NTkzMjV8MA&force=true")
+    no-repeat center center;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 1️⃣ Sidebar luôn hiển thị trên màn hình lớn */
+.sidebar {
+  width: 250px;
+  background: #612f83;
+  height: 100vh;
+  padding: 20px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  transition: left 0.3s ease-in-out;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+/* 2️⃣ Ẩn nút toggle trên màn hình lớn */
+.toggle-sidebar {
+  display: none;
+}
+
+/* 3️⃣ Ẩn sidebar trên màn hình nhỏ (mobile) */
+@media screen and (max-width: 768px) {
+  .sidebar {
+    left: -250px; /* Ẩn sidebar khi load */
+  }
+
+  .sidebar.show {
+    left: 0; /* Hiện sidebar khi nhấn nút */
+  }
+
+  .toggle-sidebar {
+    display: block; /* Chỉ hiện nút trên mobile */
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    background: #612f83;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    border-radius: 5px;
+    z-index: 1000;
+  }
+
+  .toggle-sidebar:hover {
+    background: #4e2370;
+  }
+}
+
+/* Sidebar ẩn trên màn hình nhỏ */
+/* @media screen and (max-width: 768px) {
+  .sidebar {
+    transform: translateX(-100%);
+    left: -250px;
+  }
+  .sidebar.active {
+    transform: translateX(0);
+    left: 0;
+  }
+} */
+
+.sidebar h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #fff;
+  font-size: 20px;
+}
+
+.menu-item {
+  padding: 12px;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+  color: #fff;
+}
+
+.menu-item:hover {
+  background: #ddd;
+  color: #612f83;
+}
+
+/* Main Content */
+.main-content {
+  flex: 1;
+  padding: 20px;
+  margin-left: 250px;
+  transition: margin-left 0.3s ease-in-out;
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    margin-left: 0;
+  }
+}
+
+/* Header */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.profile img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+/* Tabs */
+.tabs {
+  display: flex;
+  gap: 15px;
+  cursor: pointer;
+}
+
+.tab {
+  padding: 10px 20px;
+  border-bottom: 3px solid transparent;
+  transition: 0.3s;
+}
+
+.tab:hover,
+.tab.active {
+  border-bottom: 3px solid rgb(0, 255, 149);
+}
+
+.tab-content {
+  display: none;
+  margin-top: 20px;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.tab-content.active {
+  display: block;
+}
+
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto; /* Cho phép cuộn ngang nếu bảng rộng hơn màn hình */
+}
+
+table {
+  width: 100%;
+  min-width: 800px; /* Đảm bảo bảng không bị thu nhỏ quá mức */
+  table-layout: fixed; /* Định dạng chiều rộng cột */
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: left;
+  white-space: normal; /* Cho phép chữ xuống dòng khi cần */
+  word-wrap: break-word; /* Tự động xuống dòng nếu nội dung quá dài */
+}
+
+/* Fix trên mobile */
+@media (max-width: 768px) {
+  .table-wrapper {
+    overflow-x: auto;
+  }
+
+  table {
+    width: 100%;
+    min-width: 100%;
+  }
+}
