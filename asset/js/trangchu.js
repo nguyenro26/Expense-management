@@ -93,6 +93,28 @@ document.addEventListener("DOMContentLoaded", function () {
 //   }
 // });
 
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+import {
+  getAuth,
+  onAuthStateChanged,
+  signOut,
+} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+
+// Cấu hình Firebase
+const firebaseConfig = {
+  apiKey: "AIzaSyCuCDqeR0UcQL4V1HHCc1Anm2lKb75mgh0",
+  authDomain: "mocnhienproject-e9a7b.firebaseapp.com",
+  projectId: "mocnhienproject-e9a7b",
+  storageBucket: "mocnhienproject-e9a7b.appspot.com",
+  messagingSenderId: "351963088473",
+  appId: "1:351963088473:web:7f9a01b17bdf6062e79348",
+  measurementId: "G-4TSEL459SZ",
+};
+
+// Khởi tạo Firebase
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+
 // Ẩn nút đăng ký
 document.addEventListener("DOMContentLoaded", function () {
   const logoutBtn = document.getElementById("logout-btn");
@@ -102,46 +124,26 @@ document.addEventListener("DOMContentLoaded", function () {
   const registerBtn = document.getElementById("register");
   const thankYouPopup = document.getElementById("thank-you-popup");
 
-  // 📌 Kiểm tra người dùng khi tải trang
-  const currentUser = JSON.parse(localStorage.getItem("currentUser")); // Lấy đúng user đang đăng nhập
+  // 📌 Kiểm tra trạng thái đăng nhập từ Firebase Auth
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      // Nếu có user đăng nhập, hiển thị thông tin
+      for (let i = 0; i < displayNames.length; i++) {
+        displayNames[i].style.display = "block";
+        displayNames[i].textContent = `Xin chào, ${
+          user.displayName || user.email
+        }`;
+      }
+      for (let i = 0; i < userNames.length; i++) {
+        userNames[i].style.display = "block";
+        userNames[i].textContent = user.email;
+      }
 
-  if (currentUser) {
-    // Nếu có người đăng nhập, hiển thị tên và ẩn nút đăng nhập/đăng ký
-    for (let i = 0; i < displayNames.length; i++) {
-      displayNames[i].style.display = "block";
-      displayNames[
-        i
-      ].textContent = `Xin chào, ${currentUser.firstName} ${currentUser.lastName}`;
-    }
-    for (let i = 0; i < userNames.length; i++) {
-      userNames[i].style.display = "block";
-      userNames[i].textContent = currentUser.email;
-    }
-
-    if (loginBtn) loginBtn.style.display = "none";
-    if (registerBtn) registerBtn.style.display = "none";
-    if (logoutBtn) logoutBtn.style.display = "block"; // 👉 Hiện nút Đăng xuất
-  } else {
-    // Nếu không có người dùng -> Ẩn tên, hiển thị lại nút Đăng Nhập & Đăng Ký
-    for (let i = 0; i < displayNames.length; i++) {
-      displayNames[i].style.display = "none";
-    }
-    for (let i = 0; i < userNames.length; i++) {
-      userNames[i].style.display = "none";
-    }
-
-    if (loginBtn) loginBtn.style.display = "block";
-    if (registerBtn) registerBtn.style.display = "block";
-    if (logoutBtn) logoutBtn.style.display = "none"; // 👉 Ẩn nút Đăng xuất
-  }
-
-  // 📌 Xử lý khi người dùng Đăng Xuất
-  if (logoutBtn) {
-    logoutBtn.addEventListener("click", function () {
-      localStorage.removeItem("currentUser"); // Xóa user hiện tại
-      alert("Bạn đã đăng xuất!");
-
-      // Ẩn tên người dùng
+      if (loginBtn) loginBtn.style.display = "none";
+      if (registerBtn) registerBtn.style.display = "none";
+      if (logoutBtn) logoutBtn.style.display = "block"; // 👉 Hiện nút Đăng xuất
+    } else {
+      // Nếu không có người dùng -> Ẩn tên, hiển thị lại nút Đăng Nhập & Đăng Ký
       for (let i = 0; i < displayNames.length; i++) {
         displayNames[i].style.display = "none";
       }
@@ -149,26 +151,39 @@ document.addEventListener("DOMContentLoaded", function () {
         userNames[i].style.display = "none";
       }
 
-      // Hiện lại nút Đăng Nhập & Đăng Ký
       if (loginBtn) loginBtn.style.display = "block";
       if (registerBtn) registerBtn.style.display = "block";
-      if (logoutBtn) logoutBtn.style.display = "none"; // Ẩn nút Đăng xuất khi logout
+      if (logoutBtn) logoutBtn.style.display = "none"; // 👉 Ẩn nút Đăng xuất
+    }
+  });
 
-      // Hiển thị popup cảm ơn khi đăng xuất
-      if (thankYouPopup) {
-        thankYouPopup.style.display = "block"; // Hiện popup
-        setTimeout(() => {
-          thankYouPopup.style.opacity = "1"; // Hiện dần
-        }, 100);
+  // 📌 Xử lý khi người dùng Đăng Xuất
+  if (logoutBtn) {
+    logoutBtn.addEventListener("click", function () {
+      signOut(auth)
+        .then(() => {
+          alert("Bạn đã đăng xuất!");
 
-        // Mờ dần và ẩn sau 10 giây
-        setTimeout(() => {
-          thankYouPopup.style.opacity = "0"; // Mờ dần
-          setTimeout(() => {
-            thankYouPopup.style.display = "none"; // Ẩn hoàn toàn
-          }, 1000);
-        }, 5000);
-      }
+          // Hiển thị popup cảm ơn khi đăng xuất
+          if (thankYouPopup) {
+            thankYouPopup.style.display = "block";
+            setTimeout(() => {
+              thankYouPopup.style.opacity = "1"; // Hiện dần
+            }, 100);
+
+            // Mờ dần và ẩn sau 10 giây
+            setTimeout(() => {
+              thankYouPopup.style.opacity = "0"; // Mờ dần
+              setTimeout(() => {
+                thankYouPopup.style.display = "none"; // Ẩn hoàn toàn
+              }, 1000);
+            }, 5000);
+          }
+        })
+        .catch((error) => {
+          console.error("Lỗi khi đăng xuất:", error.message);
+          alert(`❌ Lỗi: ${error.message}`);
+        });
     });
   }
 });

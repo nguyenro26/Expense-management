@@ -1,38 +1,69 @@
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+import {
+  getAuth,
+  signInWithEmailAndPassword,
+} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+
+// Cấu hình Firebase
+const firebaseConfig = {
+  apiKey: "AIzaSyCuCDqeR0UcQL4V1HHCc1Anm2lKb75mgh0",
+  authDomain: "mocnhienproject-e9a7b.firebaseapp.com",
+  projectId: "mocnhienproject-e9a7b",
+  storageBucket: "mocnhienproject-e9a7b.appspot.com",
+  messagingSenderId: "351963088473",
+  appId: "1:351963088473:web:7f9a01b17bdf6062e79348",
+  measurementId: "G-4TSEL459SZ",
+};
+
+// Khởi tạo Firebase
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+
 // Đăng nhập user
 document.addEventListener("DOMContentLoaded", function () {
-  console.log("JavaScript đã tải!");
+  console.log("JavaScript đã tải LOGIN!");
 
   const loginBtn = document.getElementById("login-Btn");
 
   if (loginBtn) {
     loginBtn.addEventListener("click", function () {
       console.log("Nút đăng nhập đã được nhấn!");
-      const username = document.getElementById("username").value.trim();
+
+      const email = document.getElementById("email").value.trim();
       const password = document.getElementById("password").value.trim();
 
-      if (!username || !password) {
+      if (!email || !password) {
         alert("❌ Vui lòng nhập email và mật khẩu!");
         return;
       }
 
-      let users = JSON.parse(localStorage.getItem("users")) || [];
+      signInWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+          const user = userCredential.user;
+          console.log("Đăng nhập thành công:", user);
 
-      // Kiểm tra user trong danh sách
-      const user = users.find(
-        (u) => u.loginName === username && u.password === password
-      );
+          // Lưu thông tin user vào localStorage (tùy chọn)
+          localStorage.setItem(
+            "currentUser",
+            JSON.stringify({
+              uid: user.uid,
+              email: user.email,
+              displayName: user.displayName,
+            })
+          );
 
-      if (user) {
-        alert("✅ Đăng nhập thành công!");
-        // Lưu thông tin người dùng
-        localStorage.setItem("currentUser", JSON.stringify(user));
-        setTimeout(() => {
-          window.location.href = "index.html";
-        }, 1000);
-      } else {
-        alert("❌ Email hoặc mật khẩu không đúng!");
-      }
+          alert(`✅ Chào mừng ${user.displayName || "bạn"}!`);
+          setTimeout(() => {
+            window.location.href = "index.html";
+          }, 1000);
+        })
+        .catch((error) => {
+          console.error("Lỗi đăng nhập:", error.message);
+          alert(`❌ Lỗi: ${error.message}`);
+        });
     });
+  } else {
+    console.error("❌ Không tìm thấy nút đăng nhập!");
   }
 });
 

@@ -9,59 +9,98 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+import {
+  getAuth,
+  onAuthStateChanged,
+} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+import {
+  getFirestore,
+  collection,
+  onSnapshot,
+} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+// 🔥 Cấu hình Firebase
+const firebaseConfig = {
+  apiKey: "AIzaSyCuCDqeR0UcQL4V1HHCc1Anm2lKb75mgh0",
+  authDomain: "mocnhienproject-e9a7b.firebaseapp.com",
+  projectId: "mocnhienproject-e9a7b",
+  storageBucket: "mocnhienproject-e9a7b.appspot.com",
+  messagingSenderId: "351963088473",
+  appId: "1:351963088473:web:7f9a01b17bdf6062e79348",
+  measurementId: "G-4TSEL459SZ",
+};
+
+// 🔥 Khởi tạo Firebase
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
+
+// 📌 Hiển thị tên người dùng đăng nhập
 document.addEventListener("DOMContentLoaded", function () {
-  const storedUser = JSON.parse(localStorage.getItem("users"));
-  if (storedUser) {
-    const displayName = document.querySelector(".info-user");
-    if (displayName) {
-      displayName.textContent =
-        storedUser.firstName + " " + storedUser.lastName;
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      const displayName = document.querySelector(".info-user");
+      if (displayName) {
+        displayName.textContent = user.displayName || user.email;
+      } else {
+        console.log("Không tìm thấy phần tử hiển thị thông tin người dùng!");
+      }
     } else {
-      console.log("Không tìm thấy thông tin người dùng!");
+      alert("❌ Bạn chưa đăng nhập! Hãy đăng nhập để tiếp tục.");
+      window.location.href = "dangnhap.html";
     }
-  }
+  });
 });
 
-// Xử lý tải dữ liệu người dùng từ localStorage
+// 📌 Lắng nghe thay đổi từ Firestore (REALTIME)
 function loadUserData() {
-  console.log("Đang tải dữ liệu người dùng...");
+  console.log("🔄 Đang tải dữ liệu người dùng...");
 
   const userTableBody = document.getElementById("userTableBody");
   if (!userTableBody) {
-    console.error("Không tìm thấy bảng userTableBody!");
+    console.error("❌ Không tìm thấy bảng userTableBody!");
     return;
   }
 
-  let users = JSON.parse(localStorage.getItem("users")) || [];
-  //   localStorage.setItem("users", JSON.stringify([]));
   userTableBody.innerHTML = ""; // Xóa dữ liệu cũ
 
-  if (users.length === 0) {
-    console.log("Không có dữ liệu người dùng!");
-    return;
-  }
+  const usersCollection = collection(db, "users");
 
-  users.forEach((user, index) => {
-    const row = document.createElement("tr");
-    row.innerHTML = `
-            <td>${index + 1}</td>
+  onSnapshot(usersCollection, (snapshot) => {
+    userTableBody.innerHTML = ""; // Xóa bảng trước khi cập nhật mới
+
+    if (snapshot.empty) {
+      console.log("⚠ Không có dữ liệu người dùng!");
+      return;
+    }
+
+    let index = 1;
+    snapshot.forEach((doc) => {
+      const user = doc.data();
+      const row = document.createElement("tr");
+      row.innerHTML = `
+            <td>${index++}</td>
             <td>${user.firstName || "N/A"} ${user.lastName || "N/A"}</td>
             <td>${user.email || "N/A"}</td>
-            <td>${user.phone || "N/A"}</td>
-            <td>${user.address || "N/A"}</td>
-            <td>${user.role || "N/A"}</td>
-        `;
-    userTableBody.appendChild(row);
+            <td>${user.phone || "Chưa cập nhật"}</td>
+            <td>${user.address || "Chưa cập nhật"}</td>
+            <td>${user.role || "User"}</td>
+          `;
+      userTableBody.appendChild(row);
+    });
+
+    console.log("✅ Danh sách người dùng đã cập nhật!");
   });
 }
 
-// Gọi hàm loadUserData() khi DOM đã sẵn sàng
+// 🚀 Gọi hàm tải dữ liệu khi trang được tải
 document.addEventListener("DOMContentLoaded", loadUserData);
 
+// 📌 Xử lý chuyển tab
 document.addEventListener("DOMContentLoaded", function () {
   console.log("JavaScript đã tải thành công!");
 
-  // Xử lý chuyển tab
   const tabs = document.querySelectorAll(".tab");
   const tabContents = document.querySelectorAll(".tab-content");
 
