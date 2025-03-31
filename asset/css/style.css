@@ -282,6 +282,16 @@ figcaption {
   display: block;
 }
 
+@media (hover: none) and (pointer: coarse) {
+  .user-profile {
+    /* background-color: lightblue; */
+  }
+}
+
+.user-profile:active {
+  background-color: lightgray;
+}
+
 .info-container {
   display: flex;
   flex-direction: column;

@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
   if (homeBtn) {
     homeBtn.addEventListener("click", function () {
       console.log("Nút đăng ký đã được nhấn!");
-      window.location.href = "index.html";
+      window.location.href = "trangchu.html";
     });
   }
 });

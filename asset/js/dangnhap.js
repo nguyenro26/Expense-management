@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
           alert(`✅ Chào mừng ${user.displayName || "bạn"}!`);
           setTimeout(() => {
-            window.location.href = "index.html";
+            window.location.href = "trangchu.html";
           }, 1000);
         })
         .catch((error) => {
