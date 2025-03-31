@@ -1,4 +1,3 @@
-// Hiển thị thông tin đăng nhập
 document.addEventListener("DOMContentLoaded", function () {
   console.log("JavaScript đã tải USER PROFILE");
 
@@ -7,6 +6,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const displayName = document.querySelector(".display-name");
   const userEmail = document.querySelector(".user-name");
   const adminLink = document.getElementById("adminLink");
+  const userProfile = document.querySelector(".user-profile");
+  const adminDropdown = document.querySelector(".dropdown-menu");
 
   if (currentUser) {
     console.log("Thông tin người dùng:", currentUser);
@@ -20,22 +21,19 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Kiểm tra nếu là admin
-    if (
-      currentUser.email.toLowerCase() === "mocnhienoffical@gmail.com" &&
-      adminLink
-    ) {
-      adminLink.style.display = "block";
-      adminLink.addEventListener("click", function (event) {
-        event.preventDefault();
-        window.location.href = "admin.html";
-      });
-    } else if (adminLink) {
-      adminLink.style.display = "none";
+    if (currentUser.email.toLowerCase() === "mocnhienoffical@gmail.com") {
+      if (adminLink) adminLink.style.display = "block";
+      if (userProfile) userProfile.classList.add("is-admin"); // Đánh dấu admin
+    } else {
+      if (adminLink) adminLink.style.display = "none";
+      if (userProfile) userProfile.classList.remove("is-admin"); // Xóa quyền admin
     }
   } else {
     console.log("Không tìm thấy thông tin người dùng!");
     if (displayName) displayName.textContent = "Khách";
     if (userEmail) userEmail.textContent = "Chưa đăng nhập";
+    if (adminLink) adminLink.style.display = "none";
+    if (userProfile) userProfile.classList.remove("is-admin");
   }
 });
 
@@ -164,6 +162,18 @@ document.addEventListener("DOMContentLoaded", function () {
         .then(() => {
           alert("Bạn đã đăng xuất!");
 
+          // Xóa thông tin người dùng khỏi localStorage
+          localStorage.removeItem("currentUser");
+
+          // Ẩn admin dropdown và xóa class admin
+          const userProfile = document.querySelector(".user-profile");
+          const adminLink = document.getElementById("adminLink");
+          const adminDropdown = document.getElementById("dropdown-menu");
+
+          if (userProfile) userProfile.classList.remove("is-admin");
+          if (adminLink) adminLink.style.display = "none";
+          if (adminDropdown) adminDropdown.style.display = "none"; // Ẩn hoàn toàn dropdown
+
           // Hiển thị popup cảm ơn khi đăng xuất
           if (thankYouPopup) {
             thankYouPopup.style.display = "block";
@@ -171,7 +181,7 @@ document.addEventListener("DOMContentLoaded", function () {
               thankYouPopup.style.opacity = "1"; // Hiện dần
             }, 100);
 
-            // Mờ dần và ẩn sau 10 giây
+            // Mờ dần và ẩn sau 5 giây
             setTimeout(() => {
               thankYouPopup.style.opacity = "0"; // Mờ dần
               setTimeout(() => {

@@ -46,7 +46,7 @@ a {
 .nav-menu a {
   color: bisque;
   font-size: 1.6rem;
-  padding: 20px;
+  padding: 17px;
   display: block;
 }
 
@@ -278,7 +278,7 @@ figcaption {
 }
 
 /* Hiển thị dropdown khi hover */
-.user-profile:hover .dropdown-menu {
+.user-profile.is-admin:hover .dropdown-menu {
   display: block;
 }
 
