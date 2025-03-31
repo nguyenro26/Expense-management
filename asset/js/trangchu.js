@@ -1,3 +1,4 @@
+// Hanlde đăng nhập trên web
 document.addEventListener("DOMContentLoaded", function () {
   console.log("JavaScript đã tải USER PROFILE");
 
@@ -14,7 +15,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Hiển thị tên và email người dùng
     if (displayName) {
-      displayName.textContent = `${currentUser.firstName} ${currentUser.lastName}`;
+      displayName.textContent = `${currentUser.displayName}`;
+    } else {
+      displayName.style.display = "none";
     }
     if (userEmail) {
       userEmail.textContent = currentUser.email;
@@ -36,60 +39,6 @@ document.addEventListener("DOMContentLoaded", function () {
     if (userProfile) userProfile.classList.remove("is-admin");
   }
 });
-
-// // Ẩn đăng nhập và đăng ký
-// document.addEventListener("DOMContentLoaded", function () {
-//   console.log("Kiểm tra trạng thái đăng nhập...");
-
-//   const loginBtn = document.getElementById("login");
-//   const registerBtn = document.getElementById("register");
-
-//   // Kiểm tra xem có user trong localStorage không
-//   const currentUser = JSON.parse(localStorage.getItem("users"));
-
-//   if (currentUser) {
-//     console.log("Người dùng đã đăng nhập:", currentUser);
-
-//     // Ẩn nút Đăng Nhập & Đăng Ký
-//     if (loginBtn) loginBtn.style.display = "none";
-//     if (registerBtn) registerBtn.style.display = "none";
-//   }
-// });
-
-// // Hanlde đăng xuất
-// document.addEventListener("DOMContentLoaded", function () {
-//   const logoutBtn = document.getElementById("logout-btn");
-//   const displayName = document.querySelector(".display-name");
-//   const userEmail = document.querySelector(".user-name");
-//   const loginBtn = document.getElementById("login");
-//   const registerBtn = document.getElementById("register");
-//   const thankYouPopup = document.getElementById("thank-you-popup");
-//   const closePopupBtn = document.getElementById("close-popup");
-
-//   if (logoutBtn) {
-//     logoutBtn.addEventListener("click", function () {
-//       localStorage.removeItem("currentUser"); // Xóa user khỏi localStorage
-//       alert("Bạn đã đăng xuất!");
-
-//       // Ẩn tên người dùng và nút Đăng Xuất, hiện lại Đăng Nhập & Đăng Ký
-//       displayName.style.display = "none";
-//       logoutBtn.style.display = "none";
-//       userEmail.style.display = "none";
-//       loginBtn.style.display = "flex";
-//       registerBtn.style.display = "block";
-
-//       // Hiển thị popup cảm ơn
-//       thankYouPopup.style.display = "block";
-//     });
-//   }
-
-//   // Đóng popup cảm ơn
-//   if (closePopupBtn) {
-//     closePopupBtn.addEventListener("click", function () {
-//       thankYouPopup.style.display = "none";
-//     });
-//   }
-// });
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
 import {
@@ -113,87 +62,70 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
-// Ẩn nút đăng ký
 document.addEventListener("DOMContentLoaded", function () {
-  const logoutBtn = document.getElementById("logout-btn");
-  const displayNames = document.getElementsByClassName("display-name");
-  const userNames = document.getElementsByClassName("user-name");
+  const userProfile = document.querySelector(".user-profile-mobile");
+  const dropdownMenu = document.getElementById("dropdown-menu");
   const loginBtn = document.getElementById("login");
   const registerBtn = document.getElementById("register");
-  const thankYouPopup = document.getElementById("thank-you-popup");
 
   // 📌 Kiểm tra trạng thái đăng nhập từ Firebase Auth
   onAuthStateChanged(auth, (user) => {
     if (user) {
-      // Nếu có user đăng nhập, hiển thị thông tin
-      for (let i = 0; i < displayNames.length; i++) {
-        displayNames[i].style.display = "block";
-        displayNames[i].textContent = `Xin chào, ${
-          user.displayName || user.email
-        }`;
+      let dropdownContent = `<a id="logout-btn" href="#">Đăng xuất</a>`;
+
+      if (user.email.toLowerCase() === "mocnhienoffical@gmail.com") {
+        dropdownContent =
+          `<a href="admin.html">Quản trị viên</a>` + dropdownContent;
       }
-      for (let i = 0; i < userNames.length; i++) {
-        userNames[i].style.display = "block";
-        userNames[i].textContent = user.email;
-      }
+
+      dropdownMenu.innerHTML = dropdownContent;
 
       if (loginBtn) loginBtn.style.display = "none";
       if (registerBtn) registerBtn.style.display = "none";
-      if (logoutBtn) logoutBtn.style.display = "block"; // 👉 Hiện nút Đăng xuất
     } else {
-      // Nếu không có người dùng -> Ẩn tên, hiển thị lại nút Đăng Nhập & Đăng Ký
-      for (let i = 0; i < displayNames.length; i++) {
-        displayNames[i].style.display = "none";
-      }
-      for (let i = 0; i < userNames.length; i++) {
-        userNames[i].style.display = "none";
-      }
+      dropdownMenu.innerHTML = `<a href="dangnhap.html">Đăng nhập</a>`;
 
       if (loginBtn) loginBtn.style.display = "block";
       if (registerBtn) registerBtn.style.display = "block";
-      if (logoutBtn) logoutBtn.style.display = "none"; // 👉 Ẩn nút Đăng xuất
     }
   });
 
-  // 📌 Xử lý khi người dùng Đăng Xuất
-  if (logoutBtn) {
-    logoutBtn.addEventListener("click", function () {
+  // 📱 Xử lý dropdown trên điện thoại
+  if (userProfile && dropdownMenu) {
+    userProfile.addEventListener("touchstart", function (event) {
+      event.stopPropagation();
+      dropdownMenu.style.display =
+        dropdownMenu.style.display === "block" ? "none" : "block";
+    });
+
+    document.addEventListener("touchstart", function () {
+      dropdownMenu.style.display = "none";
+    });
+
+    dropdownMenu.addEventListener("touchstart", function (event) {
+      event.stopPropagation();
+    });
+  }
+
+  // 📌 Xử lý khi đăng xuất
+  document.addEventListener("click", function (event) {
+    if (event.target.id === "logout-btn") {
       signOut(auth)
         .then(() => {
           alert("Bạn đã đăng xuất!");
 
-          // Xóa thông tin người dùng khỏi localStorage
+          // Xóa thông tin user khỏi localStorage
           localStorage.removeItem("currentUser");
 
-          // Ẩn admin dropdown và xóa class admin
-          const userProfile = document.querySelector(".user-profile");
-          const adminLink = document.getElementById("adminLink");
-          const adminDropdown = document.getElementById("dropdown-menu");
-
-          if (userProfile) userProfile.classList.remove("is-admin");
-          if (adminLink) adminLink.style.display = "none";
-          if (adminDropdown) adminDropdown.style.display = "none"; // Ẩn hoàn toàn dropdown
-
-          // Hiển thị popup cảm ơn khi đăng xuất
-          if (thankYouPopup) {
-            thankYouPopup.style.display = "block";
-            setTimeout(() => {
-              thankYouPopup.style.opacity = "1"; // Hiện dần
-            }, 100);
-
-            // Mờ dần và ẩn sau 5 giây
-            setTimeout(() => {
-              thankYouPopup.style.opacity = "0"; // Mờ dần
-              setTimeout(() => {
-                thankYouPopup.style.display = "none"; // Ẩn hoàn toàn
-              }, 1000);
-            }, 5000);
-          }
+          // 👉 Làm mới trang để cập nhật giao diện ngay
+          setTimeout(() => {
+            location.reload();
+          }, 500);
         })
         .catch((error) => {
           console.error("Lỗi khi đăng xuất:", error.message);
           alert(`❌ Lỗi: ${error.message}`);
         });
-    });
-  }
+    }
+  });
 });
