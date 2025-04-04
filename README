@@ -1,2 +1,14 @@
-currentUser --> Lưu thông tin user hiện tại đăng Nhập
-users --> Lưu thông tin tất cả các user và các user registed
+[Release 1.1 version 1.1.1][Test done][Deployed success]
+- Trang chủ ban đầu của Mộc Nhiên và các tính năng cơ bản
+
+[Release 1.1 version 1.1.2][Test done][Deployed success]
+- Update trang chủ, fix tỉ lệ màn hình trên mobile, hoàn thành các tính năng cơ bản
+
+[Release 1.2 version 1.2.1][Test done][Deployed success]
+- Update thêm một số tính năng như: Đăng nhập, đăng ký, quản lý nhân viên, account.
+
+[Release 1.2 version 1.2.1][Hotfix][Test done][Deployed success]
+- Update giao diện trang chủ, tính năng mua hàng trên Mộc Nhiên SHOP, fixed toàn bộ lỗi
+trên mobile, fixed lỗi data người dùng, fixed giao diện cho toàn bộ page.
+
+[Release 1.2 version 1.2.2][Developing....]

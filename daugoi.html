@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="./asset/img/mocnhien.png"
+      type="image/x-icon"
+    />
+    <title>Mộc Nhiên SHOP - Dầu gội thảo mộc</title>
+    <link rel="stylesheet" href="./asset/css/reset.css" />
+    <link rel="stylesheet" href="./asset/css/daugoi.css" />
+    <link rel="stylesheet" href="./asset/css/reponsive.css" />
+  </head>
+  <body>
+    <header>
+      <img
+        class="logo-wrapper"
+        id="logo"
+        src="./asset/img/mocnhien.png"
+        alt="MocNhien"
+      />
+      <div class="title-shop">Dầu gội Mộc Nhiên</div>
+      <input type="text" placeholder="Bạn đang tìm gì?" class="search-box" />
+      <nav class="item">
+        <ul>
+          <li><a href="index.html">Trang chủ</a></li>
+          <li data-category="cham-soc-da-mat" class="category-item">
+            <a href="#">Chăm sóc da mặt</a>
+          </li>
+          <li data-category="cham-soc-toc" class="category-item">
+            <a href="#">Chăm sóc tóc</a>
+          </li>
+          <li data-category="spa" class="category-item">
+            <a href="#">SPA</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <aside class="menu">
+        <h3>Lọc sản phẩm theo</h3>
+        <label>Giá:</label>
+        <input type="range" min="330000" max="480000" value="480000" />
+        <div class="price-range">330.000 đ - 480.000 đ</div>
+        <label>Loại tóc:</label>
+        <div class="filter-section">
+          <ul class="filter-category">
+            <li>
+              <input type="checkbox" id="toc-dau" />
+              <label for="toc-dau">Tóc dầu</label>
+            </li>
+            <li>
+              <input type="checkbox" id="toc-gau" />
+              <label for="toc-gau">Tóc gầu</label>
+            </li>
+            <li>
+              <input type="checkbox" id="toc-hu-ton" />
+              <label for="toc-hu-ton">Tóc Hư Tổn</label>
+            </li>
+            <li>
+              <input type="checkbox" id="toc-mong-thua" />
+              <label for="toc-mong-thua">Tóc mỏng và thưa</label>
+            </li>
+            <li>
+              <input type="checkbox" id="toc-nhuom" />
+              <label for="toc-nhuom">Tóc nhuộm</label>
+            </li>
+            <li>
+              <input type="checkbox" id="da-kho" />
+              <label for="da-kho">Da khô</label>
+            </li>
+            <li>
+              <input type="checkbox" id="da-dau" />
+              <label for="da-dau">Da dầu</label>
+            </li>
+            <li>
+              <input type="checkbox" id="da-mun" />
+              <label for="da-mun">Da mụn</label>
+            </li>
+          </ul>
+        </div>
+        <ul class="brand-list">
+          <li>
+            <img src="asset/img/list_thuonghieu/chiyoko.jpg" alt="CHIYOKO" />
+          </li>
+          <li>
+            <img src="asset\img\list_thuonghieu\Lamimi.jpg" alt="LAMIMI" />
+          </li>
+          <li>
+            <img src="asset\img\list_thuonghieu\Salaka.jpg" alt="SALAKA" />
+          </li>
+        </ul>
+      </aside>
+      <section class="product-list">
+        <div class="product" data-category="Tóc dầu cham-soc-toc">
+          <img
+            src="asset\img\list_daugoi\daugoi-thaoduoc-lamimi.jpg"
+            alt="Dầu gội 1"
+          />
+          <h4>Dầu Gội Khô Refresh Purifying</h4>
+          <p class="price">480.000 đ</p>
+          <button class="buy-button">Mua hàng online</button>
+        </div>
+        <div class="product" data-category="toc-dau cham-soc-toc">
+          <img
+            src="asset\img\list_daugoi\daugoi-thaomoc-lamimi-ongmuot.jpg"
+            alt="Dầu gội 2"
+          />
+          <h4>Dầu Gội Trị Rụng Tóc</h4>
+          <p class="price">360.000 đ</p>
+          <button class="buy-button">Mua hàng online</button>
+        </div>
+        <div class="product" data-category="toc-dau cham-soc-toc">
+          <img
+            src="asset\img\list_daugoi\daugoi-thaoduoc-lamimi-nano.jpg"
+            alt="Dầu gội 3"
+          />
+          <h4>Dầu Gội Trị Gàu</h4>
+          <p class="price">360.000 đ</p>
+          <button class="buy-button">Mua hàng online</button>
+        </div>
+        <div class="product" data-category="toc-dau cham-soc-toc">
+          <img
+            src="asset\img\list_daugoi\daugoi-thaoduoc-lamimi-tokho.jpg"
+            alt="Dầu gội 4"
+          />
+          <h4>Dầu Gội Trị Gàu</h4>
+          <p class="price">360.000 đ</p>
+          <button class="buy-button">Mua hàng online</button>
+        </div>
+        <div class="product" data-category="toc-dau cham-soc-toc">
+          <img
+            src="asset\img\list_daugoi\daugoi-thaoduoc-salaka-buoirung.jpg"
+            alt="Dầu gội 5"
+          />
+          <h4>Dầu Gội Trị Gàu</h4>
+          <p class="price">360.000 đ</p>
+          <button class="buy-button">Mua hàng online</button>
+        </div>
+        <div class="product" data-category="toc-dau cham-soc-toc">
+          <img
+            src="asset\img\list_daugoi\daugoi-thaoduoc-salaka-boket.jpg"
+            alt="Dầu gội 6"
+          />
+          <h4>Dầu Gội Trị Gàu</h4>
+          <p class="price">360.000 đ</p>
+          <button class="buy-button">Mua hàng online</button>
+        </div>
+        <div class="product" data-category="toc-dau cham-soc-toc">
+          <img
+            src="asset\img\list_daugoi\daugoi-thaoduoc-salaka-buoirung.jpg"
+            alt="Dầu gội 7"
+          />
+          <h4>Dầu Gội Trị Gàu</h4>
+          <p class="price">360.000 đ</p>
+          <button class="buy-button">Mua hàng online</button>
+        </div>
+        <div class="product" data-category="toc-dau cham-soc-toc">
+          <img
+            src="asset\img\list_daugoi\daugoi-thaoduoc-salaka-boket.jpg"
+            alt="Dầu gội 8"
+          />
+          <h4>Dầu Gội Trị Gàu</h4>
+          <p class="price">360.000 đ</p>
+          <button class="buy-button">Mua hàng online</button>
+        </div>
+        <div class="product" data-category="toc-gau cham-soc-toc">
+          <img
+            src="asset\img\list_daugoi\daugoi-thaoduoc-lamimi.jpg"
+            alt="Dầu gội 9"
+          />
+          <h4>Dầu Gội Khô Refresh Purifying</h4>
+          <p class="price">480.000 đ</p>
+          <button class="buy-button">Mua hàng online</button>
+        </div>
+        <div class="product" data-category="toc-gau cham-soc-toc">
+          <img
+            src="asset\img\list_daugoi\daugoi-thaomoc-lamimi-ongmuot.jpg"
+            alt="Dầu gội 10"
+          />
+          <h4>Dầu Gội Trị Rụng Tóc</h4>
+          <p class="price">360.000 đ</p>
+          <button class="buy-button">Mua hàng online</button>
+        </div>
+        <div class="product" data-category="toc-hu-ton cham-soc-toc">
+          <img
+            src="asset\img\list_daugoi\daugoi-thaoduoc-lamimi-nano.jpg"
+            alt="Dầu gội 11"
+          />
+          <h4>Dầu Gội Trị Gàu</h4>
+          <p class="price">360.000 đ</p>
+          <button class="buy-button">Mua hàng online</button>
+        </div>
+        <div class="product" data-category="toc-hu-ton cham-soc-toc">
+          <img
+            src="asset\img\list_daugoi\daugoi-thaoduoc-lamimi-tokho.jpg"
+            alt="Dầu gội 12"
+          />
+          <h4>Dầu Gội Trị Gàu</h4>
+          <p class="price">360.000 đ</p>
+          <button class="buy-button">Mua hàng online</button>
+        </div>
+        <div class="product" data-category="toc-hu-ton cham-soc-toc">
+          <img
+            src="asset\img\list_daugoi\daugoi-thaoduoc-salaka-buoirung.jpg"
+            alt="Dầu gội 13"
+          />
+          <h4>Dầu Gội Trị Gàu</h4>
+          <p class="price">360.000 đ</p>
+          <button class="buy-button">Mua hàng online</button>
+        </div>
+        <div class="product" data-category="toc-hu-ton cham-soc-toc">
+          <img
+            src="asset\img\list_daugoi\daugoi-thaoduoc-salaka-boket.jpg"
+            alt="Dầu gội 14"
+          />
+          <h4>Dầu Gội Trị Gàu</h4>
+          <p class="price">360.000 đ</p>
+          <button class="buy-button">Mua hàng online</button>
+        </div>
+        <div class="product" data-category="toc-hu-ton cham-soc-toc">
+          <img
+            src="asset\img\list_daugoi\daugoi-thaoduoc-salaka-buoirung.jpg"
+            alt="Dầu gội 15"
+          />
+          <h4>Dầu Gội Trị Gàu</h4>
+          <p class="price">360.000 đ</p>
+          <button class="buy-button">Mua hàng online</button>
+        </div>
+        <div class="product" data-category="toc-hu-ton cham-soc-toc">
+          <img
+            src="asset\img\list_daugoi\daugoi-thaoduoc-salaka-boket.jpg"
+            alt="Dầu gội 16"
+          />
+          <h4>Dầu Gội Trị Gàu</h4>
+          <p class="price">360.000 đ</p>
+          <button class="buy-button">Mua hàng online</button>
+        </div>
+        <div class="product" data-category="toc-hu-ton cham-soc-toc">
+          <img
+            src="asset\img\list_daugoi\daugoi-thaoduoc-lamimi.jpg"
+            alt="Dầu gội 17"
+          />
+          <h4>Dầu Gội Khô Refresh Purifying</h4>
+          <p class="price">480.000 đ</p>
+          <button class="buy-button">Mua hàng online</button>
+        </div>
+        <div class="product" data-category="toc-mong-thua cham-soc-toc">
+          <img
+            src="asset\img\list_daugoi\daugoi-thaomoc-lamimi-ongmuot.jpg"
+            alt="Dầu gội 18"
+          />
+          <h4>Dầu Gội Trị Rụng Tóc</h4>
+          <p class="price">360.000 đ</p>
+          <button class="buy-button">Mua hàng online</button>
+        </div>
+        <div class="product" data-category="toc-mong-thua cham-soc-toc">
+          <img
+            src="asset\img\list_daugoi\daugoi-thaoduoc-lamimi-nano.jpg"
+            alt="Dầu gội 19"
+          />
+          <h4>Dầu Gội Trị Gàu</h4>
+          <p class="price">360.000 đ</p>
+          <button class="buy-button">Mua hàng online</button>
+        </div>
+        <div class="product" data-category="toc-mong-thua cham-soc-toc">
+          <img
+            src="asset\img\list_daugoi\daugoi-thaoduoc-lamimi-tokho.jpg"
+            alt="Dầu gội 20"
+          />
+          <h4>Dầu Gội Trị Gàu</h4>
+          <p class="price">360.000 đ</p>
+          <button class="buy-button">Mua hàng online</button>
+        </div>
+        <div class="product" data-category="toc-mong-thua cham-soc-toc">
+          <img
+            src="asset\img\list_daugoi\daugoi-thaoduoc-salaka-buoirung.jpg"
+            alt="Dầu gội 21"
+          />
+          <h4>Dầu Gội Trị Gàu</h4>
+          <p class="price">360.000 đ</p>
+          <button class="buy-button">Mua hàng online</button>
+        </div>
+        <div class="product" data-category="toc-mong-thua cham-soc-toc">
+          <img
+            src="asset\img\list_daugoi\daugoi-thaoduoc-salaka-boket.jpg"
+            alt="Dầu gội 22"
+          />
+          <h4>Dầu Gội Trị Gàu</h4>
+          <p class="price">360.000 đ</p>
+          <button class="buy-button">Mua hàng online</button>
+        </div>
+        <div class="product" data-category="toc-mong-thua cham-soc-toc">
+          <img
+            src="asset\img\list_daugoi\daugoi-thaoduoc-salaka-buoirung.jpg"
+            alt="Dầu gội 23"
+          />
+          <h4>Dầu Gội Trị Gàu</h4>
+          <p class="price">360.000 đ</p>
+          <button class="buy-button">Mua hàng online</button>
+        </div>
+        <div class="product" data-category="toc-mong-thua cham-soc-toc">
+          <img
+            src="asset\img\list_daugoi\daugoi-thaoduoc-salaka-boket.jpg"
+            alt="Dầu gội 24"
+          />
+          <h4>Dầu Gội Trị Gàu</h4>
+          <p class="price">360.000 đ</p>
+          <button class="buy-button">Mua hàng online</button>
+        </div>
+        <div class="product" data-category="toc-mong-thua cham-soc-toc">
+          <img
+            src="asset\img\list_daugoi\daugoi-thaoduoc-lamimi.jpg"
+            alt="Dầu gội 25"
+          />
+          <h4>Dầu Gội Khô Refresh Purifying</h4>
+          <p class="price">480.000 đ</p>
+          <button class="buy-button">Mua hàng online</button>
+        </div>
+        <div class="product" data-category="toc-mong-thua cham-soc-toc">
+          <img
+            src="asset\img\list_daugoi\daugoi-thaomoc-lamimi-ongmuot.jpg"
+            alt="Dầu gội 26"
+          />
+          <h4>Dầu Gội Trị Rụng Tóc</h4>
+          <p class="price">360.000 đ</p>
+          <button class="buy-button">Mua hàng online</button>
+        </div>
+        <div class="product" data-category="toc-mong-thua cham-soc-toc">
+          <img
+            src="asset\img\list_daugoi\daugoi-thaoduoc-lamimi-nano.jpg"
+            alt="Dầu gội 27"
+          />
+          <h4>Dầu Gội Trị Gàu</h4>
+          <p class="price">360.000 đ</p>
+          <button class="buy-button">Mua hàng online</button>
+        </div>
+        <div class="product" data-category="toc-mong-thua cham-soc-toc">
+          <img
+            src="asset\img\list_daugoi\daugoi-thaoduoc-lamimi-tokho.jpg"
+            alt="Dầu gội 28"
+          />
+          <h4>Dầu Gội Trị Gàu</h4>
+          <p class="price">360.000 đ</p>
+          <button class="buy-button">Mua hàng online</button>
+        </div>
+        <div class="product" data-category="toc-mong-thua cham-soc-toc">
+          <img
+            src="asset\img\list_daugoi\daugoi-thaoduoc-salaka-buoirung.jpg"
+            alt="Dầu gội 29"
+          />
+          <h4>Dầu Gội Trị Gàu</h4>
+          <p class="price">360.000 đ</p>
+          <button class="buy-button">Mua hàng online</button>
+        </div>
+        <div class="product" data-category="toc-nhuom cham-soc-toc">
+          <img
+            src="asset\img\list_daugoi\daugoi-thaoduoc-salaka-boket.jpg"
+            alt="Dầu gội 30"
+          />
+          <h4>Dầu Gội Trị Gàu</h4>
+          <p class="price">360.000 đ</p>
+          <button class="buy-button">Mua hàng online</button>
+        </div>
+        <div class="product" data-category="toc-nhuom cham-soc-toc">
+          <img
+            src="asset\img\list_daugoi\daugoi-thaoduoc-salaka-buoirung.jpg"
+            alt="Dầu gội 31"
+          />
+          <h4>Dầu Gội Trị Gàu</h4>
+          <p class="price">360.000 đ</p>
+          <button class="buy-button">Mua hàng online</button>
+        </div>
+        <div class="product" data-category="toc-nhuom cham-soc-toc">
+          <img
+            src="asset\img\list_daugoi\daugoi-thaoduoc-salaka-boket.jpg"
+            alt="Dầu gội 32"
+          />
+          <h4>Dầu Gội Trị Gàu</h4>
+          <p class="price">360.000 đ</p>
+          <button class="buy-button">Mua hàng online</button>
+        </div>
+        <!-- Chăm sóc da mặt -->
+        <div class="product" data-category="da-kho cham-soc-da-mat">
+          <img
+            src="asset\img\list_csdamat\kemduongam_latopic.jpg"
+            alt="Sản phẩm chăm sóc da"
+          />
+          <h4>Kem Dưỡng Ẩm</h4>
+          <p class="price">350.000 đ</p>
+          <button class="buy-button">Mua hàng online</button>
+        </div>
+        <div class="product" data-category="da-kho cham-soc-da-mat">
+          <img
+            src="asset\img\list_csdamat\kemduongam_latopic.jpg"
+            alt="Sản phẩm chăm sóc da"
+          />
+          <h4>Kem Dưỡng Ẩm</h4>
+          <p class="price">350.000 đ</p>
+          <button class="buy-button">Mua hàng online</button>
+        </div>
+        <div class="product" data-category="da-kho cham-soc-da-mat">
+          <img
+            src="asset\img\list_csdamat\kemduongam_latopic.jpg"
+            alt="Sản phẩm chăm sóc da"
+          />
+          <h4>Kem Dưỡng Ẩm</h4>
+          <p class="price">350.000 đ</p>
+          <button class="buy-button">Mua hàng online</button>
+        </div>
+        <div class="product" data-category="da-kho cham-soc-da-mat">
+          <img
+            src="asset\img\list_csdamat\kemduongam_latopic.jpg"
+            alt="Sản phẩm chăm sóc da"
+          />
+          <h4>Kem Dưỡng Ẩm</h4>
+          <p class="price">350.000 đ</p>
+          <button class="buy-button">Mua hàng online</button>
+        </div>
+        <div class="product" data-category="da-dau cham-soc-da-mat">
+          <img
+            src="asset\img\list_csdamat\kemduongam_latopic.jpg"
+            alt="Sản phẩm chăm sóc da"
+          />
+          <h4>Kem Dưỡng Ẩm</h4>
+          <p class="price">350.000 đ</p>
+          <button class="buy-button">Mua hàng online</button>
+        </div>
+        <div class="product" data-category="da-dau cham-soc-da-mat">
+          <img
+            src="asset\img\list_csdamat\kemduongam_latopic.jpg"
+            alt="Sản phẩm chăm sóc da"
+          />
+          <h4>Kem Dưỡng Ẩm</h4>
+          <p class="price">350.000 đ</p>
+          <button class="buy-button">Mua hàng online</button>
+        </div>
+        <div class="product" data-category="da-dau cham-soc-da-mat">
+          <img
+            src="asset\img\list_csdamat\kemduongam_latopic.jpg"
+            alt="Sản phẩm chăm sóc da"
+          />
+          <h4>Kem Dưỡng Ẩm</h4>
+          <p class="price">350.000 đ</p>
+          <button class="buy-button">Mua hàng online</button>
+        </div>
+        <div class="product" data-category="da-dau cham-soc-da-mat">
+          <img
+            src="asset\img\list_csdamat\kemduongam_latopic.jpg"
+            alt="Sản phẩm chăm sóc da"
+          />
+          <h4>Kem Dưỡng Ẩm</h4>
+          <p class="price">350.000 đ</p>
+          <button class="buy-button">Mua hàng online</button>
+        </div>
+      </section>
+    </main>
+    <div id="product-modal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2 id="product-name"></h2>
+        <img id="product-image" src="" alt="Product Image" />
+        <p id="product-price"></p>
+
+        <label for="quantity">Số lượng:</label>
+        <input type="number" id="quantity" value="1" min="1" />
+        <p>Tổng tiền: <span id="total-price"></span></p>
+
+        <label for="customer-name">Họ và tên:</label>
+        <input
+          type="text"
+          id="customer-name"
+          placeholder="Nhập họ và tên"
+          required
+        />
+
+        <label for="customer-phone">Số điện thoại:</label>
+        <input
+          type="tel"
+          id="customer-phone"
+          placeholder="Nhập số điện thoại"
+          required
+        />
+
+        <label for="customer-address">Địa chỉ:</label>
+        <textarea
+          id="customer-address"
+          placeholder="Nhập địa chỉ"
+          required
+        ></textarea>
+
+        <label for="customer-address">Voucher:</label>
+        <textarea
+          id="voucher"
+          placeholder="Nhập voucher giảm giá"
+          required
+        ></textarea>
+
+        <button id="confirm-purchase">Xác nhận mua</button>
+        <button id="unconfirm-purchase">Hủy</button>
+      </div>
+    </div>
+    <div id="confirm-popup" class="popup">
+      <div class="popup-content">
+        <p>Bạn có chắc chắn muốn đóng cửa sổ này?</p>
+        <button id="confirm-yes">Yes</button>
+        <button id="confirm-no">No</button>
+      </div>
+    </div>
+    <script type="module" src="asset/js/daugoi.js"></script>
+  </body>
+</html>

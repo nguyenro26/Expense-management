@@ -200,6 +200,7 @@ p {
   margin-right: 65px;
   margin-top: 10px;
   margin-left: 2px;
+  font-size: small;
 }
 
 figcaption {
@@ -354,4 +355,127 @@ figcaption {
   display: none;
   opacity: 1;
   transition: opacity 1s ease-in-out;
+}
+
+.footer {
+  border-top: 2px solid #ccc;
+  font-family: system-ui, sans-serif;
+  color: #333;
+  width: 100%;
+  max-width: 100%;
+  background-color: #f8f8f8;
+  padding: 20px 0;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.footer-social {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.footer-social img {
+  height: 100px;
+  margin-right: 10px;
+  border-radius: 8px;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  font-weight: bold;
+  color: #207227;
+  font-size: 18px;
+  transition: opacity 0.3s ease;
+}
+
+.social-link:hover {
+  opacity: 0.8;
+}
+
+.footer-contact {
+  flex: 2;
+}
+
+.footer-contact h3 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.footer-contact h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #207227;
+}
+
+.btn-call {
+  background-color: #207227;
+  color: #fff;
+  padding: 6px 12px;
+  text-decoration: none;
+  border-radius: 6px;
+  margin-left: 8px;
+  font-weight: bold;
+}
+
+.btn-call:hover {
+  background-color: #1a5e20;
+}
+
+.fanpage-link {
+  color: #207227;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.fanpage-link:hover {
+  color: #184e1a;
+}
+
+@media screen and (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .footer-social {
+    justify-content: flex-start;
+  }
+
+  .footer-contact h2 {
+    font-size: 20px;
+    line-height: 1.4;
+  }
+
+  .footer-contact h3,
+  .footer-contact p {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  .btn-call {
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 16px;
+    padding: 8px 16px;
+  }
+
+  .social-link {
+    font-size: 16px;
+  }
+
+  .footer-social img {
+    height: 40px;
+  }
 }
